@@ -1,0 +1,21 @@
+#!/bin/bash
+
+if [ "$#" -ne 1 ]; then
+	echo "illegal number of parameters"
+fi
+
+FILE=$1
+
+echo `date -u +"%Y-%m-%dT%H:%M:%SZ"` `hostname` "File Creating '${FILE}'"
+
+touch ${FILE} ;
+
+echo `date -u +"%Y-%m-%dT%H:%M:%SZ"` `hostname` "Started" 2>&1 | tee -a ${FILE} ;
+
+i=0
+
+while true ; do
+	echo `date -u +"%Y-%m-%dT%H:%M:%SZ"` `hostname` `printf '%02d' $i` 2>&1 | tee -a ${FILE} ;
+	sleep 1 ;
+	((i=i+1)) ;
+done
