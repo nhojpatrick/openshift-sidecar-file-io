@@ -1,0 +1,8 @@
+
+image_consumer:
+  repository: "image-registry.openshift-image-registry.svc:5000/images/consumer"
+  tag: "latest"
+
+image_producer:
+  repository: "image-registry.openshift-image-registry.svc:5000/images/producer"
+  tag: "latest"
